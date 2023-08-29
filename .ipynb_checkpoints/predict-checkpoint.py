@@ -24,14 +24,13 @@ print('\n Model loaded successfully.. \n')
 
 
 
-''' Predict on test images from original dataset  '''
-i = 20 # change to see prediction on new images
-# root_dir        = 'path/to/dataset/dir/' 
+''' Uncomment to predict on test images from original dataset  '''
+# i = 10 # change to see prediction on new images
+# # root_dir        = 'path/to/dataset/dir/' 
 # test_img_paths = glob(root_dir + '/test_data/images' + '/*.jpg')
 # img = cv2.cvtColor(cv2.imread(test_img_paths[i]), cv2.COLOR_BGR2RGB)
 
 ''' Read image from Internet '''
-# url          = 'https://jooinn.com/images/human-crowd-2.jpg'
 url          = 'https://upload.wikimedia.org/wikipedia/commons/8/88/The_million_march_man.jpg'
 url_response = urllib.request.urlopen(url)
 img_array    = np.array(bytearray(url_response.read()), dtype=np.uint8)
@@ -50,8 +49,9 @@ ax0.set_title('Image')
 ax1.set_title(f'Count: {et.sum():.0f}')
 ax0.axis("off")
 ax1.axis("off")
-plt.show()
+plt.tight_layout()
 plt.savefig('./predictions/new.jpg', dpi=150 )
+plt.show()
 
 
 
